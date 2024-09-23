@@ -87,13 +87,16 @@ button:hover {
     margin-top: 20px;
 }
 
-canvas {
+.cow-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
     margin-top: 20px;
-    max-width: 100%;
 }
 
-/* Icon Styling */
-i {
-    margin-right: 10px;
-    color: #3498db;
+.cow-container img {
+    width: 50px;
+    margin-right: 5px;
+    margin-bottom: 5px;
 }
