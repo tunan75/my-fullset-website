@@ -6,7 +6,6 @@
     <title>Full Set Beef Calculator</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
@@ -44,7 +43,11 @@
             <p><i class="fas fa-tint"></i> Water Savings: <span id="waterSavings"></span></p>
             <p><i class="fas fa-seedling"></i> Land Savings: <span id="landSavings"></span></p>
             <p id="carbonOffset"></p>
-            <canvas id="steerChart" width="400" height="200"></canvas>
+
+            <!-- Sections to display cow images for each model -->
+            <div id="premiumCutCows" class="cow-container"></div>
+            <div id="fullSetCows" class="cow-container"></div>
+            <div id="steersSavedCows" class="cow-container"></div>
         </section>
     </main>
 </body>
