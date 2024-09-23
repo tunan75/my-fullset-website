@@ -62,7 +62,7 @@ function displayCowImages(containerId, numCows) {
     container.innerHTML = ''; // Clear any previous images
     for (let i = 0; i < numCows; i++) {
         const cowImg = document.createElement('img');
-        cowImg.src = 'https://drive.google.com/file/d/1DoHbIWCm3aH2JjS5vmxjJR8XlEH_s4yV/view?usp=drive_link'; 
+        cowImg.src = 'https://upload.wikimedia.org/wikipedia/commons/0/04/Black_Angus_Bull.jpg'; // 
         cowImg.alt = 'Black Angus Cow';
         container.appendChild(cowImg);
     }
