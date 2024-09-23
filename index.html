@@ -54,3 +54,34 @@
 renderChart(premiumSteers, fullSetSteers);
 <p id="carbonOffset"></p> <!-- For displaying the carbon offset message -->
 <canvas id="steerChart" width="400" height="200"></canvas>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<p><i class="fas fa-cow"></i> Steers Required (Premium Cut Model): <span id="premiumSteers"></span></p>
+<p><i class="fas fa-leaf"></i> CO₂ Reduction: <span id="carbonReduction"></span></p>
+<p><i class="fas fa-tint"></i> Water Savings: <span id="waterSavings"></span></p>
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    background-image: url('https://example.com/background.jpg');
+    background-size: cover;
+    color: white;
+    padding: 40px;
+}
+#results {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+#results p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+#carbonOffset {
+    font-size: 20px;
+    font-weight: bold;
+    color: #28a745;
+    margin-top: 20px;
+}
