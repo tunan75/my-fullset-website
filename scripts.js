@@ -62,7 +62,7 @@ function displayCowImages(containerId, numCows) {
     container.innerHTML = ''; // Clear any previous images
     for (let i = 0; i < numCows; i++) {
         const cowImg = document.createElement('img');
-        cowImg.src = 'https://example.com/black-cow.png'; // Replace with your black Angus cow image URL
+        cowImg.src = 'https://drive.google.com/file/d/1DoHbIWCm3aH2JjS5vmxjJR8XlEH_s4yV/view?usp=drive_link'; 
         cowImg.alt = 'Black Angus Cow';
         container.appendChild(cowImg);
     }
