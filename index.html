@@ -1,1 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Set Beef Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script> <!-- Load JS file -->
+</head>
+<body>
+    <header>
+        <h1>Full Set Beef Calculator</h1>
+        <p>Estimate beef consumption and environmental impact for your resort</p>
+    </header>
+
+    <main>
+        <!-- Form Section -->
+        <section id="calculator">
+            <h2>Beef Consumption Calculator</h2>
+            <form id="beefForm">
+                <label for="rooms">Number of Rooms:</label>
+                <input type="number" id="rooms" name="rooms" required>
+
+                <label for="occupancy">Occupancy Rate (%):</label>
+                <input type="number" id="occupancy" name="occupancy" max="100" min="0" required>
+
+                <label for="guests">Average Number of Guests per Room:</label>
+                <input type="number" id="guests" name="guests" value="2" required>
+
+                <label for="staff">Staff Size:</label>
+                <input type="number" id="staff" name="staff" required>
+
+                <button type="button" onclick="calculateBeef()">Calculate</button>
+            </form>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results">
+            <h2>Results</h2>
+            <p>Total Beef Consumption: <span id="totalBeef"></span></p>
+            <p>Steers Required: <span id="premiumSteers"></span></p>
+        </section>
+    </main>
+</body>
+</html>
 
