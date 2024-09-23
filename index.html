@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Set Beef Calculator</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS -->
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Full Set Beef Calculator</h1>
+        <p>Calculate your resort’s beef needs and explore the Full Set model.</p>
+    </header>
+
+    <main>
+        <section id="calculator">
+            <h2>Beef Consumption Calculator</h2>
+            <form id="beefForm">
+                <label for="rooms">Number of Rooms:</label>
+                <input type="number" id="rooms" name="rooms" required>
+                
+                <label for="occupancy">Occupancy Rate (%):</label>
+                <input type="number" id="occupancy" name="occupancy" max="100" min="0" required>
+                
+                <label for="guests">Average Number of Guests per Room:</label>
+                <input type="number" id="guests" name="guests" value="2" required>
+                
+                <label for="staff">Staff Size:</label>
+                <input type="number" id="staff" name="staff" required>
+                
+                <button type="button" onclick="calculateBeef()">Calculate</button>
+            </form>
+        </section>
+
+        <section id="results">
+            <h2>Results</h2>
+            <p>Total Beef Consumption: <span id="totalBeef"></span></p>
+            <p>Steers Required (Premium Cut Model): <span id="premiumSteers"></span></p>
+            <p>Steers Required (Full Set Model): <span id="fullSetSteers"></span></p>
+            <p>Steers Saved: <span id="steersSaved"></span></p>
+            <p>CO₂ Reduction: <span id="carbonReduction"></span></p>
+            <p>Water Savings: <span id="waterSavings"></span></p>
+            <p>Land Savings: <span id="landSavings"></span></p>
+        </section>
+    </main>
+
+    <script src="scripts.js"></script> <!-- Link to your JavaScript -->
+</body>
+</html>
