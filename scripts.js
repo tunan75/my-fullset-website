@@ -104,4 +104,39 @@ function calculateBeef() {
     const beefPerMeal = 0.2; // kg per meal
     const mealsPerDay = 3;
     const daysPerMonth = 30.42; // Average days per month
-    const premiumCutYield =
+    const premiumCutYield =function calculateBeef() {
+    // Get form values
+    const rooms = document.getElementById("rooms").value;
+    const occupancy = document.getElementById("occupancy").value / 100;
+    const guestsPerRoom = document.getElementById("guests").value;
+    const staff = document.getElementById("staff").value;
+
+    // Constants
+    const beefPerMeal = 0.08; // 80 grams (0.08 kg) per meal per person
+    const mealsPerDay = 3;
+    const daysPerMonth = 30.42; // Average days per month
+    const premiumCutYield = 0.20; // 20% premium cuts
+    const fullSetYield = 0.80; // 80% utilization
+    const steerYield = 220; // kg of freezer-ready beef per steer
+    const co2PerSteer = 13500; // kg CO₂ per steer
+    const waterPerSteer = 7500000; // liters of water per steer
+    const landPerSteer = 2000; // square meters per steer
+
+    // Calculate total guests and beef consumption (monthly)
+    const totalGuests = rooms * occupancy * guestsPerRoom;
+    const totalMealsPerDay = (totalGuests + staff) * mealsPerDay;
+    const totalBeefPerMonth = totalMealsPerDay * beefPerMeal * daysPerMonth; // in kg
+
+    // Calculate number of steers required (monthly)
+    const premiumSteers = totalBeefPerMonth / (steerYield * premiumCutYield);
+    const fullSetSteers = totalBeefPerMonth / steerYield;
+    const steersSaved = premiumSteers - fullSetSteers;
+
+    // Calculate environmental savings (monthly)
+    const carbonReduction = steersSaved * co2PerSteer; // in kg
+    const waterSavings = steersSaved * waterPerSteer; // in liters
+    const landSavings = steersSaved * landPerSteer; // in square meters
+
+    // Convert to more user-friendly units (monthly)
+    const total
+
