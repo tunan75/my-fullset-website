@@ -1,20 +1,33 @@
 /* General page styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     color: #333;
     padding: 20px;
 }
 
+/* Header Styling */
 header {
     text-align: center;
     margin-bottom: 20px;
+    background-image: url('https://example.com/background.jpg'); /* Replace with your background image URL */
+    background-size: cover;
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
 }
 
-h1 {
-    color: #2c3e50;
+header h1 {
+    font-size: 36px;
+    margin: 0;
 }
 
+header p {
+    font-size: 18px;
+    margin: 10px 0 0;
+}
+
+/* Form Styling */
 form {
     background-color: #ffffff;
     padding: 20px;
@@ -27,6 +40,7 @@ label {
     display: block;
     margin-top: 10px;
     font-weight: bold;
+    font-size: 16px;
 }
 
 input {
@@ -34,6 +48,7 @@ input {
     margin-top: 5px;
     width: 100%;
     box-sizing: border-box;
+    font-size: 14px;
 }
 
 button {
@@ -44,15 +59,41 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 button:hover {
     background-color: #2980b9;
 }
 
+/* Results Styling */
 #results {
-    background-color: #ecf0f1;
+    background-color: #f9f9f9;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
+#results p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+#carbonOffset {
+    font-size: 20px;
+    font-weight: bold;
+    color: #28a745;
+    margin-top: 20px;
+}
+
+canvas {
+    margin-top: 20px;
+    max-width: 100%;
+}
+
+/* Icon Styling */
+i {
+    margin-right: 10px;
+    color: #3498db;
+}
