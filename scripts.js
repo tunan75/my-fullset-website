@@ -93,3 +93,15 @@ function calculateBeef() {
     document.getElementById("waterSavings").textContent = waterSavingsKL.toFixed(2) + " kiloliters";
     document.getElementById("landSavings").textContent = landSavingsHectares.toFixed(2) + " hectares";
 }
+function calculateBeef() {
+    // Get form values
+    const rooms = document.getElementById("rooms").value;
+    const occupancy = document.getElementById("occupancy").value / 100;
+    const guestsPerRoom = document.getElementById("guests").value;
+    const staff = document.getElementById("staff").value;
+
+    // Constants
+    const beefPerMeal = 0.2; // kg per meal
+    const mealsPerDay = 3;
+    const daysPerMonth = 30.42; // Average days per month
+    const premiumCutYield =
