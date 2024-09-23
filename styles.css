@@ -12,7 +12,7 @@ header {
     margin-bottom: 20px;
     background-image: url('https://example.com/background.jpg'); /* Replace with your background image URL */
     background-size: cover;
-    color: black;
+    color: white;
     padding: 40px;
     border-radius: 10px;
 }
@@ -87,16 +87,14 @@ button:hover {
     margin-top: 20px;
 }
 
-.cow-container {
+/* Chart Styling */
+#charts {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
+    justify-content: space-around;
     margin-top: 20px;
 }
 
-.cow-container img {
-    width: 50px;
-    margin-right: 5px;
-    margin-bottom: 5px;
+canvas {
+    max-width: 300px;
+    max-height: 300px;
 }
