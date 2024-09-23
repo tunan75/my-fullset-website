@@ -57,4 +57,11 @@ function calculateBeef() {
     const fullSetsRequiredAnnually = totalAnnualBeefConsumption / steerYield; // steers per year (in decimal)
 
     // Apply monthly averaging for Full Sets
-    const fullSetsPerMonth = fullSetsRequiredAnn
+    const fullSetsPerMonth = fullSetsRequiredAnnually / 12; // Average monthly Full Set requirement (in decimal)
+
+    // Round to nearest whole Full Set and apply monthly purchasing logic
+    const fullSetsRounded = Math.round(fullSetsPerMonth); // Consistent monthly purchase as a whole number
+
+    // Environmental savings calculations
+    const carbonReductionTons = (fullSetsRounded * co2PerSteer / 1000).toFixed(2); // in metric tons
+    const waterSavingsML = (fullSetsRounded * waterPer
