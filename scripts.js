@@ -1,4 +1,3 @@
-// Function to calculate beef consumption and steers required
 function calculateBeef() {
     // Get form values
     const rooms = document.getElementById("rooms").value;
@@ -9,27 +8,52 @@ function calculateBeef() {
     // Constants
     const guestBeefPerDay = 0.08; // 80 grams (0.08 kg) per day per guest
     const staffBeefPerMonth = 0.6; // 600 grams (0.6 kg) per month per staff member
+    const staffWorkingPercentage = 0.90; // 90% of staff are working, 10% on leave
     const daysPerMonth = 30.42; // Average days per month
+    const premiumCutYield = 0.20; // 20% premium cuts
+    const fullSetYield = 0.80; // 80% utilization
     const steerYield = 220; // kg of freezer-ready beef per steer
+    const co2PerSteer = 13500; // kg CO₂ per steer
+    const waterPerSteer = 7500000; // liters of water per steer
+    const landPerSteer = 2000; // square meters per steer
 
-    // Calculate total guests and staff
+    // Calculate total guests and adjust staff count (90% staff working)
     const totalGuests = rooms * occupancy * guestsPerRoom;
-    const totalStaff = staff;
+    const staffWorking = staff * staffWorkingPercentage; // Staff on duty (excluding those on leave)
 
     // Beef consumption for guests
     const totalGuestBeefPerMonth = totalGuests * guestBeefPerDay * daysPerMonth; // in kg
 
     // Beef consumption for staff
-    const totalStaffBeefPerMonth = totalStaff * staffBeefPerMonth; // in kg
+    const totalStaffBeefPerMonth = staffWorking * staffBeefPerMonth; // in kg (monthly)
 
     // Total beef consumption (guests + staff)
     const totalBeefPerMonth = totalGuestBeefPerMonth + totalStaffBeefPerMonth; // in kg
 
     // Calculate number of steers required (monthly)
-    const steersRequired = totalBeefPerMonth / steerYield;
+    const premiumSteers = totalBeefPerMonth / (steerYield * premiumCutYield); // for premium cuts (guests)
+    const fullSetSteers = totalBeefPerMonth / steerYield; // for full set (staff + guests)
 
-    // Display results
-    document.getElementById("totalBeef").textContent = totalBeefPerMonth.toFixed(2) + " kg";
-    document.getElementById("premiumSteers").textContent = steersRequired.toFixed(2);
+    // Calculate steers saved by using Full Set model
+    const steersSaved = premiumSteers - fullSetSteers;
+
+    // Calculate environmental savings (monthly)
+    const carbonReduction = steersSaved * co2PerSteer; // in kg
+    const waterSavings = steersSaved * waterPerSteer; // in liters
+    const landSavings = steersSaved * landPerSteer; // in square meters
+
+    // Convert to more user-friendly units (monthly)
+    const totalBeefTons = totalBeefPerMonth / 1000; // kg to metric tons
+    const carbonReductionTons = carbonReduction / 1000; // kg to metric tons
+    const waterSavingsML = waterSavings / 1000000; // liters to megaliters (ML)
+    const landSavingsHectares = landSavings / 10000; // square meters to hectares
+
+    // Display results with unit conversion
+    document.getElementById("totalBeef").textContent = totalBeefTons.toFixed(2) + " metric tons";
+    document.getElementById("premiumSteers").textContent = premiumSteers.toFixed(2);
+    document.getElementById("fullSetSteers").textContent = fullSetSteers.toFixed(2);
+    document.getElementById("steersSaved").textContent = steersSaved.toFixed(2);
+    document.getElementById("carbonReduction").textContent = carbonReductionTons.toFixed(2) + " metric tons CO₂";
+    document.getElementById("waterSavings").textContent = waterSavingsML.toFixed(2) + " megaliters";
+    document.getElementById("landSavings").textContent = landSavingsHectares.toFixed(2) + " hectares";
 }
-
