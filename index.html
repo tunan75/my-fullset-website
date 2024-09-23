@@ -6,6 +6,7 @@
     <title>Full Set Beef Calculator</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js Library -->
 </head>
 <body>
     <header>
@@ -36,18 +37,15 @@
         <section id="results">
             <h2>Results</h2>
             <p><i class="fas fa-drumstick-bite"></i> Total Beef Consumption: <span id="totalBeef"></span></p>
-            <p><i class="fas fa-cow"></i> Steers Required (Premium Cut Model): <span id="premiumSteers"></span></p>
-            <p><i class="fas fa-leaf"></i> Steers Required (Full Set Model): <span id="fullSetSteers"></span></p>
-            <p><i class="fas fa-balance-scale"></i> Steers Saved: <span id="steersSaved"></span></p>
-            <p><i class="fas fa-wind"></i> CO₂ Reduction: <span id="carbonReduction"></span></p>
-            <p><i class="fas fa-tint"></i> Water Savings: <span id="waterSavings"></span></p>
-            <p><i class="fas fa-seedling"></i> Land Savings: <span id="landSavings"></span></p>
+            <p><i class="fas fa-cow"></i> Steers Required (Full Set Model - Averaged): <span id="premiumSteers"></span></p>
             <p id="carbonOffset"></p>
 
-            <!-- Sections to display cow images for each model -->
-            <div id="premiumCutCows" class="cow-container"></div>
-            <div id="fullSetCows" class="cow-container"></div>
-            <div id="steersSavedCows" class="cow-container"></div>
+            <!-- Circular Charts for Environmental Impact -->
+            <div id="charts">
+                <canvas id="co2Chart"></canvas>
+                <canvas id="waterChart"></canvas>
+                <canvas id="landChart"></canvas>
+            </div>
         </section>
     </main>
 </body>
