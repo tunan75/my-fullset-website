@@ -32,11 +32,38 @@ function calculateBeef() {
     const totalBeefPerMonth = totalGuestBeefPerMonth + totalStaffBeefPerMonth; // in kg
 
     // Calculate number of steers required (monthly)
-    const premiumSteers = totalBeefPerMonth / (steerYield * premiumCutYield); // for premium cuts (guests)
-    const fullSetSteers = totalBeefPerMonth / steerYield; // for full set (staff + guests)
+    const premiumSteers = Math.round(totalBeefPerMonth / (steerYield * premiumCutYield)); // for premium cuts (guests)
+    const fullSetSteers = Math.round(totalBeefPerMonth / steerYield); // for full set (staff + guests)
 
     // Calculate steers saved by using Full Set model
     const steersSaved = premiumSteers - fullSetSteers;
 
-    // Calculate environmental savings (monthly)
-    const carbonReduction = steersSaved * co2PerSteer; // in
+    // Display results with unit conversion
+    document.getElementById("totalBeef").textContent = (totalBeefPerMonth / 1000).toFixed(2) + " metric tons";
+    document.getElementById("premiumSteers").textContent = premiumSteers;
+    document.getElementById("fullSetSteers").textContent = fullSetSteers;
+    document.getElementById("steersSaved").textContent = steersSaved;
+    document.getElementById("carbonReduction").textContent = (steersSaved * co2PerSteer / 1000).toFixed(2) + " metric tons CO₂";
+    document.getElementById("waterSavings").textContent = (steersSaved * waterPerSteer / 1000000).toFixed(2) + " megaliters";
+    document.getElementById("landSavings").textContent = (steersSaved * landPerSteer / 10000).toFixed(2) + " hectares";
+
+    // Display the carbon offset
+    document.getElementById("carbonOffset").textContent = `Carbon Offset: You saved ${(steersSaved * co2PerSteer / 1000).toFixed(2)} metric tons of CO₂ emissions by switching to the Full Set model!`;
+
+    // Display cow images
+    displayCowImages('premiumCutCows', premiumSteers);
+    displayCowImages('fullSetCows', fullSetSteers);
+    displayCowImages('steersSavedCows', steersSaved);
+}
+
+// Function to display cow images
+function displayCowImages(containerId, numCows) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = ''; // Clear any previous images
+    for (let i = 0; i < numCows; i++) {
+        const cowImg = document.createElement('img');
+        cowImg.src = 'https://example.com/black-cow.png'; // Replace with your black Angus cow image URL
+        cowImg.alt = 'Black Angus Cow';
+        container.appendChild(cowImg);
+    }
+}
