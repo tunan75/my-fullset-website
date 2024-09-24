@@ -102,6 +102,24 @@ header {
 <div id="simpleInput" style="display: none;">
     <label for="guestConsumption">Guest Monthly Beef Consumption (KG):</label>
     <input type="number" id="guestConsumption" name="guestConsumption">
+<label>
+    <input type="radio" name="inputMethod" value="detailed" checked> Use Detailed Inputs
+</label>
+<label>
+    <input type="radio" name="inputMethod" value="simple"> Use Monthly Beef Consumption
+</label>
+
+<div id="detailedInput">
+    <!-- Your existing occupancy, rooms, guests, staff input fields here -->
+</div>
+
+<div id="simpleInput" style="display: none;">
+    <label for="guestConsumption">Guest Monthly Beef Consumption (KG):</label>
+    <input type="number" id="guestConsumption" name="guestConsumption">
+
+    <label for="staffConsumption">Staff Monthly Beef Consumption (KG):</label>
+    <input type="number" id="staffConsumption" name="staffConsumption">
+</div>
 
     <label for="staffConsumption">Staff Monthly Beef Consumption (KG):</label>
     <input type="number" id="staffConsumption" name="staffConsumption">
