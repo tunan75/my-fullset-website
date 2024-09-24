@@ -463,3 +463,51 @@ function renderChart(premiumSteers, fullSetSteers) {
         }
     });
 }
+// Toggle input fields based on user selection
+const inputMethodRadios = document.querySelectorAll('input[name="inputMethod"]');
+const detailedInput = document.getElementById('detailedInput');
+const simpleInput = document.getElementById('simpleInput');
+
+inputMethodRadios.forEach((radio) => {
+    radio.addEventListener('change', function() {
+        if (this.value === 'simple') {
+            detailedInput.style.display = 'none';
+            simpleInput.style.display = 'block';
+        } else {
+            detailedInput.style.display = 'block';
+            simpleInput.style.display = 'none';
+        }
+    });
+});
+
+// Calculation function for simple input method
+function calculateSimpleConsumption() {
+    const guestConsumption = parseFloat(document.getElementById('guestConsumption').value);
+    const staffConsumption = parseFloat(document.getElementById('staffConsumption').value);
+    
+    if (!isNaN(guestConsumption) && !isNaN(staffConsumption)) {
+        const totalConsumption = guestConsumption + staffConsumption;
+        displayResults(totalConsumption);
+    } else {
+        alert('Please enter valid numbers for guest and staff consumption.');
+    }
+}
+
+// Call this function on form submission when using simple input method
+function handleFormSubmission() {
+    const selectedInputMethod = document.querySelector('input[name="inputMethod"]:checked').value;
+    
+    if (selectedInputMethod === 'simple') {
+        calculateSimpleConsumption();
+    } else {
+        // Call your existing detailed input calculation function
+        calculateDetailedConsumption();
+    }
+}
+
+// Modify your result display logic to show in kg instead of metric tons
+function displayResults(totalConsumptionKg) {
+    // Assuming you are displaying total consumption somewhere in the DOM
+    const resultElement = document.getElementById('totalConsumptionResult');
+    resultElement.innerHTML = `Total Beef Consumption: ${totalConsumptionKg.toFixed(2)} KG`;
+}
