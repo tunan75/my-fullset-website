@@ -511,3 +511,16 @@ function displayResults(totalConsumptionKg) {
     const resultElement = document.getElementById('totalConsumptionResult');
     resultElement.innerHTML = `Total Beef Consumption: ${totalConsumptionKg.toFixed(2)} KG`;
 }
+const simpleInput = document.getElementById('simpleInput');
+const detailedInput = document.getElementById('detailedInput');
+inputMethodRadios.forEach((radio) => {
+    radio.addEventListener('change', function() {
+        if (this.value === 'simple') {
+            detailedInput.style.display = 'none';
+            simpleInput.style.display = 'block';
+        } else {
+            detailedInput.style.display = 'block';
+            simpleInput.style.display = 'none';
+        }
+    });
+});
