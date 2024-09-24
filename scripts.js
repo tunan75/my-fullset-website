@@ -524,3 +524,14 @@ inputMethodRadios.forEach((radio) => {
         }
     });
 });
+document.querySelectorAll('input[name="inputMethod"]').forEach(radio => {
+    radio.addEventListener('change', function () {
+        if (this.value === 'simple') {
+            document.getElementById('detailedInput').style.display = 'none';
+            document.getElementById('simpleInput').style.display = 'block';
+        } else {
+            document.getElementById('detailedInput').style.display = 'block';
+            document.getElementById('simpleInput').style.display = 'none';
+        }
+    });
+});
