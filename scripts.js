@@ -535,3 +535,14 @@ document.querySelectorAll('input[name="inputMethod"]').forEach(radio => {
         }
     });
 });
+function handleFormSubmission() {
+    const selectedInputMethod = document.querySelector('input[name="inputMethod"]:checked').value;
+    
+    if (selectedInputMethod === 'simple') {
+        // Perform simple input calculation
+        calculateSimpleConsumption();
+    } else {
+        // Perform detailed input calculation
+        calculateDetailedConsumption();
+    }
+}
